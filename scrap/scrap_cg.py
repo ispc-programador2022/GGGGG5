@@ -13,7 +13,7 @@ from bs4 import BeautifulSoup
 def get_heading(table):
     '''Obtenemos los encabezados de la tabla desde la web'''
     heading = list()
-    thead = table.find('thead').find('tr').find_all('th')[0:4]
+    thead = table.find('thead').find('tr').find_all('th')[0:5]
 
     for th in thead:
         heading.append(th.text)
@@ -28,7 +28,7 @@ def extract_data(table):
     tbody = table.find('tbody').find_all('tr')
     tbodyth = table.find('tbody').find_all('th')
     for i, tr in enumerate(tbody):
-        tds = tr.find_all('td')[0:4]
+        tds = tr.find_all('td')[0:5]
         crypto_list.append((
             tbodyth[i].text,
             tds[0].text,
@@ -41,10 +41,11 @@ def extract_data(table):
 
 def main_scrap():
     crypto_data = []
-
+    #url = f'https://www.coingecko.com/es/monedas/bitcoin/historical_data?page={pagina}&end_date=2022-11-11&start_date=2021-01-01'
+    
     for i in range(10):
         pagina = 1 + i
-        url = f'https://www.coingecko.com/es/monedas/bitcoin/historical_data?page={pagina}&end_date=2022-11-11&start_date=2021-01-01'
+        url = f'https://www.coingecko.com/en/coins/bitcoin/historical_data?page={pagina}&start_date=2021-01-01&end_date=2022-11-11'
         response = requests.get(url)
         soup = BeautifulSoup(response.content, 'html.parser')
         table = soup.find('table')
