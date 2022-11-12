@@ -57,10 +57,12 @@ def main_scrap():
 
     heading = get_heading(table)
 
-    with open('cryptos_price.csv', 'w') as f:
-        write = csv.writer(f)
-        write.writerow(heading)
-        write.writerows(crypto_data_flat)
+    return heading, crypto_data_flat
+
+    # with open('cryptos_price.csv', 'w') as f:
+    #     write = csv.writer(f)
+    #     write.writerow(heading)
+    #     write.writerows(crypto_data_flat)
 
 
 if __name__ == '__main__':
