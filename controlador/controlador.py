@@ -11,3 +11,12 @@ def cargar_historico(d):
     cp = d[4]
     moneda = mo.Coin(0, fecha, mc, vol, op, cp)
     con.cargar_historico(moneda)
+
+
+def precios_por_fecha():
+    ''' devuelve un lista de tuplas.
+    [("fecha", "open_price", "close_price"), ... ()]
+    '''
+    con = mo.Conectar()
+    a = con.precios_fecha()
+    return a

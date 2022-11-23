@@ -4,9 +4,9 @@ use cryptos;
 
 CREATE table IF NOT EXISTS crypto (
     id_entrada int not null auto_increment primary key,
-    fecha varchar(50),
-    markecap varchar(50),
-    volumen varchar(50),
-    open_price varchar(50),
-    close_price varchar(50)
+    fecha date,
+    marketcap float,
+    volumen float,
+    open_price float,
+    close_price float
 )
