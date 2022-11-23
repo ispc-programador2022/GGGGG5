@@ -28,6 +28,15 @@ class Conectar():
             self.conexion.commit()
             self.conexion.close()
 
+    def precios_fecha(self):
+        if self.conexion.is_connected():
+            cursor = self.conexion.cursor()
+            sql = "SELECT fecha, open_price, close_price FROM crypto "
+            cursor.execute(sql)
+            res = cursor.fetchall()
+            self.conexion.close()
+            return res
+
 class Coin():
     def __init__(self, id_entrada, date, marketcap, volumen, open_price, close_price):
         self.id_entrada = id_entrada

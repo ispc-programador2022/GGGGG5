@@ -66,4 +66,6 @@ def main_scrap():
 
 
 if __name__ == '__main__':
-    main_scrap()
+    a = main_scrap()
+    print(a[0])
+    print(a[1][0:10])
